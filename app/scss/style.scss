@@ -3,6 +3,56 @@
 @import 'reset';
 @import 'global';
 
+.header-top {
+  @extend %lato-700;
+  font-size: 13px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  background-color: #31352B;
+  color: #fff;
+  padding: 17px 0;
+  letter-spacing: 0.03em;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+		&__adress {
+      padding-left: 44px;
+      position: relative;
+      &::before {
+        content: url('../images/icons/del.svg');
+        position: absolute;
+        top: -5px;
+        left: 0;
+      }
+		}
+
+		&__tel {
+      padding-left: 34px;
+      margin-left: 48px;
+      position: relative;
+      &::before {
+        content: url('../images/icons/tel.svg');
+        position: absolute;
+        top: -5px;
+        left: 0;
+      }
+		}
+}
+
+.menu {
+
+		&__list {
+      display: flex;
+		}
+
+		&__item:not(:last-child) {
+      margin-right: 24px;
+		}
+}
 
 
 @import 'media';
