@@ -1,0 +1,44 @@
+.delivery {
+  background-color: $silver-100;
+  padding: 52px 0;
+
+		&__inner {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+		}
+
+		&__item {
+      padding-left: 74px;
+      position: relative;
+      &::before {
+        content: url('../images/delivery/bike.svg');
+        position: absolute;
+        left: 0;
+      }
+
+      &--return::before {
+        content: url('../images/delivery/return.svg');
+      }
+
+      &--support::before {
+        content: url('../images/delivery/support.svg');
+      }
+
+      &:not(:first-child) {
+        margin-left: 48px;
+      }
+		}
+
+		&__title {
+      font-size: 16px;
+      @extend %lato-700;
+      display: block;
+      color: $dark-900;
+		}
+
+		&__descr {
+      display: block;
+      color: $dark-500;
+		}
+}

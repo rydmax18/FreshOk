@@ -1,0 +1,114 @@
+.footer {
+  background-color: $dark-800;
+}
+.footer-top {
+  padding: 30px 0;
+  color: $white;
+
+		&__logo {
+      
+		}
+
+		&__inner {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+		}
+
+    &__text {
+      display: block;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+
+		&__subscribe {
+      display: flex;
+		}
+
+		&__input {
+      color: $dark-500;
+      line-height: 1;
+      padding: 12px 50px 12px 12px;
+      border-radius: 6px 0px 0px 6px;
+      outline: transparent;
+		}
+
+		&__btn {
+      color: $white;
+      background-color: $green-900;
+      border-radius: 0px 6px 6px 0px;
+      transition: all 0.5s;
+      &:hover {
+    background-color: #4d810c;
+      }
+      &:active {
+    background-color: $green-900;
+    color: rgba(255, 255, 255, 0.5);
+      }
+      &:focus{
+    box-shadow: inset 0px 0px 0px 4px $green-200;
+      }
+		}
+
+		&__links {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 600px;
+      width: 100%;
+      margin-left: 100px;
+		}
+
+    &__links-item {
+      max-width: 33.333%;
+      width: 100%;
+      margin-bottom: 18px;
+    }
+
+		&__tel {
+      margin-bottom: 18px;
+		}
+
+		&__address {
+      margin-bottom: 18px;
+		}
+
+    &__social-item {
+      display: inline-block;
+    }
+
+    &__social-item {
+      svg {
+        transition: transform 0.5s;
+      }
+      &:hover {
+        transform: scale(1.4);
+      }
+      &:not(:first-child){
+        margin-left: 12px;
+      }
+    }
+}
+
+.footer-bottom {
+  border-top: 1px solid $white;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+		&__text {
+      color: $white;
+      text-transform: uppercase;
+		}
+
+		&__payment {
+      display: flex;
+      padding: 24px 0;
+		}
+
+		&__master {
+      margin-left: 23px;
+		}
+}
