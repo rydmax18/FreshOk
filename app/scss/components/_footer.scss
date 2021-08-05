@@ -78,11 +78,16 @@
 
     &__social-item {
       svg {
-        transition: transform 0.5s;
+        width: 32px;
+        height: 32px;
+        fill: $white;
+        transition: all 0.5s;
+        &:hover {
+          fill: $silver-600;
+          transform: scale(1.4);
+        }
       }
-      &:hover {
-        transform: scale(1.4);
-      }
+      
       &:not(:first-child){
         margin-left: 12px;
       }
@@ -90,7 +95,7 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid $white;
+  border-top: 1px solid $silver-600;
 
     &__inner {
       display: flex;
@@ -108,7 +113,20 @@
       padding: 24px 0;
 		}
 
+    &__visa {
+      svg {
+        width: 93px;
+        height: 29px;
+        fill: $white;
+      }
+    }
+
 		&__master {
+      svg {
+        width: 49px;
+        height: 29px;
+        fill: $white;
+      }
       margin-left: 23px;
 		}
 }

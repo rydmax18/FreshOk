@@ -75,23 +75,67 @@
 		}
 
     &__select {
+      font-size: 16px;
+    }
+
+    &__select-item {
       position: relative;
+    }
+
+    &__select-item:hover &__sub-select {
+      display: block;
+    }
+
+    &__select-link {
+      padding: 15px 40px 15px 61px;
+      color: $green-900;
+      background-color: $white;
+      border-radius: 6px;
+      position: relative;
+      transition: all 0.4s;
+      &:hover {
+        background-color: #e0edcd;
+        transition: all 0.4s;
+        &::after {
+          transform: rotateZ(180deg);
+        }
+      }
       &::before {
         content: url('../images/icons/select-icon.svg');
         position: absolute;
-        left: 10px;
-        top: 15px;
+        left: 18px;
+        top: 16px;
+      }
+      &::after {
+        content: url('../images/icons/arrow-down.svg');
+        position: absolute;
+        right: 19px;
       }
     }
 
-		&__select-menu {
-      max-width: 250px;
-      width: 100%;
-      border-radius: 6px;
-      padding: 15px 19px 15px 60px;
-      color: $green-900;
-      cursor: pointer;
-		}
+    &__sub-select {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      background-color: $white;
+      border-radius: 0px 0px 6px 6px;
+      top: 32px;
+    }
+
+    &__sub-select-item {
+      border-top: 1px solid $silver-100;
+    }
+
+    &__sub-select-link {
+      display: block;
+      padding: 15px 72px 15px 24px;
+      border-left: 3px solid transparent;
+      transition: all 0.4s;
+      &:hover {
+        color: $green-900;
+        border-color: $green-900;
+      }
+    }
 
 		&__search {
       display: flex;
@@ -141,6 +185,11 @@
       position: relative;
       &:not(:last-child) {
         margin-right: 31px;
+      }
+      svg {
+        width: 32px;
+        height: 32px;
+        fill: $white;
       }
     }
 
