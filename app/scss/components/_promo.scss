@@ -26,8 +26,30 @@
       padding: 12px;
       background-color: $white;
       transition: border-color 0.4s;
+      position: relative;
+
       &:hover {
         border-color: $green-900;
+      }
+      &::after {
+        content: 'новинка';
+        position: absolute;
+        background-color: $green-900;
+        text-transform: uppercase;
+        color: $white;
+        border-radius: 6px;
+        font-size: 10px;
+        line-height: 1;
+        padding: 3px 6px;
+        @include Lato(700);
+        letter-spacing: 0.3px;
+      }
+
+      &--heat {
+        &::after {
+          content: 'хит';
+          background-color: $orange-900;
+        }
       }
 		}
 
