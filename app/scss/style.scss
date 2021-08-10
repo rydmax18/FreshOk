@@ -2,6 +2,8 @@
 @import 'vars';
 @import 'reset';
 @import 'global';
+@import 'media';
+@import 'mixins';
 
 @import 'components/header';
 @import 'components/slider';
@@ -14,3 +16,4 @@
 
 @import 'components/footer';
 
+@import 'components/bem-block';

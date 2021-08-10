@@ -1,0 +1,152 @@
+.filter{
+  display: flex;
+  justify-content: center;
+
+		&__item {
+      margin-bottom: 51px;
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+		}
+
+		&__btn {
+      @include Lato(700);
+      color: #505050;
+      font-size: 15px;
+      text-transform: uppercase;
+      background-color: transparent;
+      border-bottom: 3px solid transparent;
+      transition: all 0.5s;
+
+      &:hover,
+      &:active {
+        color: #4d800c;
+        border-color: #4d800c;
+      }
+
+      &:focus {
+        border-color: $green-200;
+      }
+		}
+}
+
+.card {
+  min-height: 409px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 17px 18px 18px;
+
+  &__top {
+    max-height: 56px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__favorite {
+    svg {
+      width: 32px;
+      height: 29px;
+      fill: $silver-600;
+      transition: fill 0.4s;
+      &:hover {
+        fill: #FFB800;
+      }
+    }
+  }
+
+  &__new, 
+  &__sale,
+  &__heat {
+    display: block;
+    @include Lato(700);
+    text-transform: uppercase;
+    padding: 3px 6px;
+    border-radius: 6px;
+    color: $white;
+    background-color: $green-900;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+  }
+
+  &__sale {
+    background-color: $red-900;
+    max-width: 37px;
+  }
+
+  &__heat {
+    background-color: $orange-900;
+    max-width: 34px;
+  }
+
+  &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin-bottom: 10px;
+		}
+
+		&__name {
+      font-size: 14px;
+      margin-bottom: 10px;
+      @include Lato(400);
+      flex: 1 0 auto;
+      @include line-clamp(3);
+		}
+
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    
+    &__oldprice {
+      color: $silver-600;
+      position: relative;
+      display: block;
+      &::after {
+        content: "";
+        border-bottom: 1px solid $silver-600;
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        transform: rotate(-15deg);
+        left: 0;
+      }
+    }
+
+		&__price {
+		}
+
+		&__buy {
+      width: 32px;
+      height: 32px;
+      border-radius: 3px;
+      background-color: $green-900;
+      position: relative;
+      transition: all 0.5s;
+      &::before {
+        content: url('../images/icons/icon-cart-mini.svg');
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 2px;
+      }
+      &:hover {
+        background-color: #4d810c;
+      }
+      &:active {
+        background-color: $green-900;
+      }
+      &:active::before{
+        opacity: 0.5;
+      }
+      &:focus{
+        box-shadow: 0px 0px 0px 4px $green-200;
+      }
+		}
+}

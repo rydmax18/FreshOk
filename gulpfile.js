@@ -2,11 +2,12 @@ const { src, dest, watch, parallel, series } = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
+const ssi = require('browsersync-ssi');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
-const browserSync = require('browser-sync').create();
 
 const replace = require('gulp-replace');
 const cheerio = require('gulp-cheerio');
@@ -15,8 +16,9 @@ const sprite = require('gulp-svg-sprite');
 function browsersync() {
   browserSync.init({
       server: {
-          baseDir: 'app/'
-      }
+          baseDir: 'app/',
+          middleware: ssi({ baseDir: 'app/', ext: '.html' }),
+      },
   });
 }
 

@@ -3,15 +3,12 @@
 
 		&__inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
 		}
 
 		&__item {
-
-		}
-
-		&__link {
+      margin: 0 auto;
 		}
 
     &__img {

@@ -32,7 +32,7 @@
 
 		&__title {
       font-size: 16px;
-      @extend %lato-700;
+      @include Lato(700);
       display: block;
       color: $dark-900;
 		}

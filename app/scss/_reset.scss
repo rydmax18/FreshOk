@@ -48,15 +48,18 @@ select {
   font: inherit;
   border: none;
   resize: none;
+  outline: transparent;
 }
 
 button {
   cursor: pointer;
+  outline: transparent;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  outline: transparent;
 }
 
 address {

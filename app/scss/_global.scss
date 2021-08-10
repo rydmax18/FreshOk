@@ -3,7 +3,7 @@ html, body{
 }
 
 body {
-  @extend %lato-400;
+  @include Lato(400);
   font-size: 14px;
   line-height: 1.4;
   background-color: $white;
@@ -73,7 +73,7 @@ body {
 }
 
 .title {
-  @extend %lato-600;
+  @include Lato(600);
   font-size: 32px;
   line-height: 1.4;
   color: $dark-900;

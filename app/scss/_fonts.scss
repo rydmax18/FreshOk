@@ -1,39 +1,20 @@
-@font-face {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  src:
-    url('../fonts/Lato-Light.woff2') format('woff2'),
-    url('../fonts/Lato-Light.woff') format('woff');
-  font-display: swap;
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url('../fonts/#{$file_name}.woff2') format('woff2'), 
+      url('../fonts/#{$file_name}.woff') format('woff');
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
 }
 
-@font-face {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  src:
-    url('../fonts/Lato-Regular.woff2') format('woff2'),
-    url('../fonts/Lato-Regular.woff') format('woff');
-  font-display: swap;
-}
+@include font('Lato', Lato-Light, 300, normal);
+@include font('Lato', Lato-Regular, 400, normal);
+@include font('Lato', Lato-Semibold, 600, normal);
+@include font('Lato', Lato-Bold, 700, normal);
 
-@font-face {
+@mixin Lato($Lfw) {
   font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  src:
-    url('../fonts/Lato-Semibold.woff2') format('woff2'),
-    url('../fonts/Lato-Semibold.woff') format('woff');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  src:
-    url('../fonts/Lato-Bold.woff2') format('woff2'),
-    url('../fonts/Lato-Bold.woff') format('woff');
-  font-display: swap;
+  font-weight: $Lfw;
 }

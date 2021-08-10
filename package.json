@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.4",
+    "browsersync-ssi": "^0.2.4",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -21,7 +22,8 @@
     "jquery": "^3.6.0",
     "sass": "^1.35.2",
     "slick-carousel": "^1.8.1",
-    "slick-slider": "^1.8.2"
+    "slick-slider": "^1.8.2",
+    "ssi": "^0.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

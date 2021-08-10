@@ -2,7 +2,6 @@
   padding-bottom: 72px;
 		&__inner {
       display: grid;
-      height: 300px;
       grid-template-columns: 630px 300px 300px;
       column-gap: 31px
 		}
@@ -12,20 +11,19 @@
       border-radius: 6px;
       padding: 79px 31px;
       text-transform: uppercase;
-      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
       &--fruit {
         color: $white;
       }
     }
 
 		&__subtitle {
-      @extend %lato-700;
+      @include Lato(700);
       font-size: 12px;
       line-height: 1;
 		}
 
 		&__title {
-      @extend %lato-600;
+      @include Lato(600);
       font-size: 30px;
       margin: 18px 0 12px;
       span {

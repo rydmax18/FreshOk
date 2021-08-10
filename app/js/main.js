@@ -15,6 +15,17 @@ $(function(){
     
   });
 
+  $('.brands__inner').slick({
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 25000,
+    pauseOnHover: true,
+    slidesToScroll: 1,
+    slidesPerRow: 6,
+  });
+
   let containerEl1 = document.querySelector('[data-ref="container-1"]');
   let containerEl2 = document.querySelector('[data-ref="container-2"]');
 
