@@ -1,41 +1,50 @@
-.filter{
+.filter {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
-		&__item {
-      margin-bottom: 51px;
-      &:not(:last-child) {
-        margin-right: 24px;
-      }
-		}
+  &__item {
+    margin-bottom: 51px;
 
-		&__btn {
-      @include Lato(700);
-      color: #505050;
-      font-size: 15px;
-      text-transform: uppercase;
-      background-color: transparent;
-      border-bottom: 3px solid transparent;
-      transition: all 0.5s;
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
 
-      &:hover,
-      &:active {
-        color: #4d800c;
-        border-color: #4d800c;
-      }
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      margin-bottom: 15px;
+    }
+  }
 
-      &:focus {
-        border-color: $green-200;
-      }
-		}
+  &__btn {
+    @include Lato(700);
+    color: #505050;
+    font-size: 15px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 0.5s;
+
+    &:hover,
+    &:active {
+      color: #4d800c;
+      border-color: #4d800c;
+    }
+
+    &:focus {
+      border-color: $green-200;
+    }
+  }
 }
 
 .card {
-  min-height: 409px;
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 17px 18px 18px;
+
+  @media only screen and (max-width: #{$screen-md-max}) {
+    padding: 12px;
+  }
 
   &__top {
     max-height: 56px;
@@ -51,12 +60,17 @@
       fill: $silver-600;
       transition: fill 0.4s;
       &:hover {
-        fill: #FFB800;
+        fill: #ffb800;
+      }
+
+      @media only screen and (max-width: #{$screen-md-max}) {
+        width: 24px;
+        height: 21px;
       }
     }
   }
 
-  &__new, 
+  &__new,
   &__sale,
   &__heat {
     display: block;
@@ -83,70 +97,444 @@
   }
 
   &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    font-size: 14px;
+    margin-bottom: 20px;
+    @include Lato(400);
+    flex: 1 0 auto;
+    @include LClamp(3);
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__oldprice {
+    color: $silver-600;
+    position: relative;
+    display: block;
+    &::after {
+      content: "";
+      border-bottom: 1px solid $silver-600;
+      position: absolute;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      margin-bottom: 10px;
-		}
-
-		&__name {
-      font-size: 14px;
-      margin-bottom: 10px;
-      @include Lato(400);
-      flex: 1 0 auto;
-      @include line-clamp(3);
-		}
-
-    &__bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      height: 50%;
+      transform: rotate(-15deg);
+      left: 0;
     }
-    
-    &__oldprice {
-      color: $silver-600;
-      position: relative;
-      display: block;
-      &::after {
-        content: "";
-        border-bottom: 1px solid $silver-600;
-        position: absolute;
-        width: 100%;
-        height: 50%;
-        transform: rotate(-15deg);
-        left: 0;
-      }
+  }
+
+  &__price {
+  }
+
+  &__buy {
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: $green-900;
+    position: relative;
+    transition: all 0.5s;
+    &::before {
+      content: url("../images/icons/icon-cart-mini.svg");
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 2px;
     }
+    &:hover {
+      background-color: #4d810c;
+    }
+    &:active {
+      background-color: $green-900;
+    }
+    &:active::before {
+      opacity: 0.5;
+    }
+    &:focus {
+      box-shadow: 0px 0px 0px 4px $green-200;
+    }
+  }
+}
 
-		&__price {
-		}
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+  max-width: 475px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-		&__buy {
+  &--visible {
+    transform: translateX(0%);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 19px 12px 26px;
+    border: 1px solid rgba(193, 193, 193, 0.3);
+    background-color: $white;
+  }
+
+  &__box {
+    color: #000;
+    letter-spacing: 0.3px;
+  }
+
+  &__name {
+    display: block;
+    @include Lato(400);
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__clean {
+    @include Lato(300);
+    padding: 0;
+    font-size: 14px;
+  }
+
+  &__close {
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $dark-900;
+    }
+  }
+
+  &__body {
+    background-color: $silver-100;
+    padding: 12px;
+    flex: 1 0 auto;
+  }
+
+  &__item {
+    background-color: $white;
+    border: 1px solid $silver-600;
+    padding: 6px;
+    margin-bottom: 12px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include Lato(600);
+    letter-spacing: 0.3px;
+    height: 84px;
+  }
+
+  &__link {
+    margin-right: 33px;
+  }
+
+  &__img {
+    max-width: 60px;
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  &__item-inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__item-box {
+    min-height: 100%;
+  }
+
+  &__item-name {
+    margin-bottom: 5px;
+    margin-top: 7px;
+    @include line-clamp(2);
+  }
+
+  &__item-price {
+    font-size: 18px;
+  }
+
+  &__item-box2 {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__item-cross {
+    svg {
+      width: 12px;
+      height: 12px;
+      fill: $silver-600;
+    }
+    margin-bottom: 26px;
+  }
+
+  &__item-total {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__item-quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    margin-left: 20px;
+    height: 24px;
+  }
+
+  &__item-minus,
+  &__item-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: $white;
+    }
+    padding: 4px;
+    background-color: $green-900;
+  }
+
+  &__item-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    padding: 0 12px;
+    background-color: $green-100;
+    height: 100%;
+  }
+
+  &__bottom-result {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    font-size: 24px;
+    background-color: $white;
+  }
+
+  &__bottom-submit {
+    width: 100%;
+    text-align: center;
+    padding: 23px 0;
+    font-size: 18px;
+    background-color: $green-900;
+    color: $white;
+  }
+}
+
+.burger-btn {
+  display: none;
+  svg {
+    fill: $white;
+    width: 30px;
+    height: 20px;
+  }
+  @media only screen and (max-width: #{$screen-md-max}) {
+    display: block;
+  }
+}
+
+.burger {
+  background-color: $white;
+  color: $dark-800;
+  max-width: 300px;
+  width: 100%;
+  text-transform: none;
+  font-size: 18px;
+  @include Lato(400);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+
+  &--visible {
+    transform: translateX(0%);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 15px 26px 26px;
+  }
+
+  &__logo {
+    fill: $green-900;
+    width: 200px;
+    height: 60px;
+  }
+
+  &__close {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__enter {
+    background-color: $green-900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 0;
+    width: 100%;
+    @include Lato(400);
+    color: $white;
+
+    svg {
+      fill: $white;
+      width: 25px;
+      height: 32px;
+      margin-right: 16px;
+    }
+  }
+
+  &__signup {
+    border-right: 1px solid $white;
+    padding-right: 10px;
+    margin-right: 10px;
+  }
+
+  &__login {
+  }
+
+  &__catalogue {
+    text-align: center;
+    padding: 15px 0;
+    @include Lato(600);
+    position: relative;
+    border-bottom: 1px solid $silver-600;
+
+    &::before {
+      content: url("../images/icons/catalogue.svg");
+      position: absolute;
+      width: 25px;
+      height: 19px;
+      left: 12%;
+    }
+  }
+
+  &__contacts {
+    color: $dark-800;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+    border-bottom: 1px solid $silver-600;
+  }
+
+  &__tel {
+    padding-left: 40px;
+    margin-bottom: 15px;
+    position: relative;
+
+    &::before {
+      content: url("../images/icons/burger-tel.svg");
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &__address {
+    display: block;
+    max-width: 209px;
+    padding-left: 40px;
+    margin-bottom: 23px;
+    position: relative;
+
+    &::before {
+      content: url("../images/icons/location.svg");
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__social-item {
+    svg {
       width: 32px;
       height: 32px;
-      border-radius: 3px;
-      background-color: $green-900;
-      position: relative;
-      transition: all 0.5s;
-      &::before {
-        content: url('../images/icons/icon-cart-mini.svg');
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        bottom: 2px;
-      }
-      &:hover {
-        background-color: #4d810c;
-      }
-      &:active {
-        background-color: $green-900;
-      }
-      &:active::before{
-        opacity: 0.5;
-      }
-      &:focus{
-        box-shadow: 0px 0px 0px 4px $green-200;
-      }
-		}
+    }
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__social-link {
+  }
+
+  &__links {
+    padding: 24px 30px 24px;
+  }
+
+  &__links-item {
+    margin-bottom: 15px;
+  }
+
+  &__links-link {
+  }
+}
+
+.search {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+
+  &::before {
+      content: url("../images/icons/icon-search.svg");
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      width: 20px;
+      height: 20px;
+      z-index: 2;
+    }
+
+  &--visible {
+    transform: translateX(0%);
+  }
+
+  &__input {
+    padding: 14px 5px 14px 45px;
+    position: relative;
+    width: 100vw;
+  }
+
+  &__btn {
+    padding: 5px 25px;
+    max-width: 110px;
+    width: 100%;
+    background-color: $dark-800;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
 }

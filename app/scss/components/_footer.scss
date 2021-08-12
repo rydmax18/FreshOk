@@ -5,16 +5,39 @@
   padding: 30px 0;
   color: $white;
 
+  &__logo {
+    img {
+      @media only screen and (max-width: #{$screen-md-max}) {
+        margin: 0 auto;
+      }
+    }
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__public {
+    @media only screen and (max-width: #{$screen-md-max}) {
+      order: 3;
+    }
   }
 
   &__text {
     display: block;
     margin-bottom: 18px;
     line-height: 1;
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      text-align: center;
+    }
   }
 
   &__subscribe {
@@ -46,22 +69,62 @@
     }
   }
 
+  &__linkbox {
+    @media only screen and (max-width: #{$screen-md-max}) {
+      order: 2;
+      margin-bottom: 29px;
+    }
+  }
+
   &__links {
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
     width: 100%;
     margin-left: 100px;
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      max-width: 500px;
+      margin-left: 50px;
+    }
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      max-width: 300px;
+      margin-left: 0px;
+    }
   }
 
   &__links-item {
     max-width: 33.333%;
     width: 100%;
     margin-bottom: 18px;
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      max-width: 50%;
+    }
+  }
+
+  &__link {
+    transition: opacity 0.4s;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__contact {
+    @media only screen and (max-width: #{$screen-md-max}) {
+      order: 1;
+      margin-bottom: 29px;
+    }
   }
 
   &__tel {
     margin-bottom: 18px;
+    a {
+      transition: opacity 0.4s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   &__address {
@@ -77,10 +140,9 @@
       width: 32px;
       height: 32px;
       fill: $white;
-      transition: all 0.5s;
+      transition: fill 0.5s;
       &:hover {
         fill: $silver-600;
-        transform: scale(1.4);
       }
     }
 
@@ -97,16 +159,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      flex-direction: column;
+    }
   }
 
   &__text {
     color: $white;
     text-transform: uppercase;
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      order: 2;
+      margin-bottom: 24px;
+    }
   }
 
   &__payment {
     display: flex;
     padding: 24px 0;
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      order: 1;
+    }
   }
 
   &__visa {

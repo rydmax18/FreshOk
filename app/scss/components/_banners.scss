@@ -1,42 +1,94 @@
 .banners {
   padding-bottom: 72px;
-		&__inner {
-      display: grid;
-      grid-template-columns: 630px 300px 300px;
-      column-gap: 31px
-		}
 
-    &__item {
-      @extend %bg;
-      border-radius: 6px;
-      padding: 79px 31px;
-      text-transform: uppercase;
-      &--fruit {
-        color: $white;
+  @media only screen and (max-width: #{$screen-sm-max}) {
+    padding-bottom: 47px;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas: "fruit vegs bread";
+    gap: 30px;
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      grid-template-areas:
+        "fruit fruit fruit"
+        "vegs bread bread";
+    }
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      grid-template-areas:
+        "fruit fruit fruit"
+        "vegs vegs vegs"
+        "bread bread bread";
+      gap: 12px;
+    }
+  }
+
+  &__item {
+    max-width: 300px;
+    width: 100%;
+    @extend %bg;
+    border-radius: 6px;
+    padding: 79px 31px;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-right: 31px;
+    }
+
+    &--fruit {
+      grid-area: fruit;
+      color: $white;
+      max-width: 630px;
+
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        max-width: 100%;
       }
     }
 
-		&__subtitle {
-      @include Lato(700);
-      font-size: 12px;
-      line-height: 1;
-		}
+    &--vegs {
+      grid-area: vegs;
 
-		&__title {
-      @include Lato(600);
-      font-size: 30px;
-      margin: 18px 0 12px;
-      span {
-        display: block;
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        max-width: 100%;
       }
-		}
+    }
 
-		&__link {
-      padding-bottom: 6px;
-      border-bottom: 2px solid $dark-500;
-      &--fruit {
-        border-color: $white;
+    &--bread {
+      grid-area: bread;
+
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        max-width: 100%;
       }
-		}
+    }
+  }
+
+  &__subtitle {
+    @include Lato(700);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  &__title {
+    @include Lato(600);
+    font-size: 30px;
+    margin: 18px 0 12px;
+    span {
+      display: block;
+    }
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      font-size: 25px;
+    }
+  }
+
+  &__link {
+    padding-bottom: 6px;
+    border-bottom: 2px solid $dark-500;
+    &--fruit {
+      border-color: $white;
+    }
+  }
 }
-

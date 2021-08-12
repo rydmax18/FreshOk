@@ -20,3 +20,10 @@
     }
   }
 }
+
+@mixin LClamp($lk) {
+    -webkit-line-clamp: $lk;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

@@ -1,68 +1,112 @@
 .news {
   padding-bottom: 74px;
 
-		&__top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-		}
+  @media only screen and (max-width: #{$screen-sm-max}) {
+      padding-bottom: 48px;
+    }
 
-		&__all {
-      line-height: 1;
-      color: $green-900;
-      text-transform: uppercase;
-      padding-bottom: 6px;
-      border-bottom: 2px solid $green-900;
-		}
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 
-		&__main {
-      display: grid;
-      grid-template-columns: 410px 410px 410px;
-      justify-content: space-between;
-		}
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 
-		&__item {
-      border-radius: 6px;
-      position: relative;
-      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-		}
+  &__title {
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      margin-bottom: 12px;
+    }
+  }
 
-		&__date {
-      position: absolute;
-      background-color: $white;
-      top: 0;
-      left: 20px;
-      text-align: center;
-      color: $dark-900;
-      border-radius: 0px 0px 4px 4px;
-      text-transform: uppercase;
-		}
+  &__all {
+    line-height: 1;
+    color: $green-900;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    border-bottom: 2px solid $green-900;
+  }
 
-		&__month {
-      display: block;
-      margin-bottom: 6px;
-      padding-top: 18px;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-		}
+  &__main {
+    display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "first second third";
+    gap: 32px;
+    justify-content: space-between;
 
-		&__day {
-      display: block;
-      padding: 0 16px 10px;
-      @include Lato(600);
-      font-size: 30px;
-      line-height: 1;
-		}
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      grid-template-areas:
+        "second second third"
+        "first first first";
+    }
 
-		&__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-		}
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      grid-template-areas:
+        "first first first"
+        "second second second"
+        "third third third";
+    }
+  }
 
-		&__text {
-      font-size: 18px;
-      padding: 18px;
-		}
+  &__item {
+    max-width: 410px;
+    width: 100%;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    &--first {
+      max-width: 100%;
+      grid-area: first;
+    }
+    &--second {
+      max-width: 100%;
+      grid-area: second;
+    }
+    &--third {
+      max-width: 100%;
+      grid-area: third;
+    }
+  }
+
+  &__date {
+    position: absolute;
+    background-color: $white;
+    top: 0;
+    left: 20px;
+    text-align: center;
+    color: $dark-900;
+    border-radius: 0px 0px 4px 4px;
+    text-transform: uppercase;
+  }
+
+  &__month {
+    display: block;
+    margin-bottom: 6px;
+    padding-top: 18px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  &__day {
+    display: block;
+    padding: 0 16px 10px;
+    @include Lato(600);
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__text {
+    font-size: 18px;
+    padding: 18px;
+  }
 }

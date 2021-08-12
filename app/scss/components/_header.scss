@@ -7,9 +7,19 @@
   color: $white;
   padding: 17px 0;
   letter-spacing: 0.3px;
+  position: relative;
+
+  @media only screen and (max-width: #{$screen-lg-max}) {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-width: #{$screen-sm-max}) {
+    padding: 12px 0;
+  }
 
   &__inner {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
   }
@@ -28,6 +38,12 @@
     &:hover {
       opacity: 0.7;
     }
+
+    span {
+      @media only screen and (max-width: #{$screen-sm-max}) {
+        display: none;
+      }
+    }
   }
 
   &__tel {
@@ -42,8 +58,19 @@
       top: -5px;
       left: 0;
     }
+
     &:hover {
       opacity: 0.7;
+    }
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      margin-left: 30px;
+    }
+  }
+
+  span {
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      display: none;
     }
   }
 }
@@ -61,6 +88,14 @@
 
     &:not(:last-child) {
       margin-right: 24px;
+
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        margin-right: 15px;
+      }
+    }
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      display: none;
     }
   }
 
@@ -73,12 +108,40 @@
   background-color: $green-900;
   padding: 25px 0;
 
+  @media only screen and (max-width: #{$screen-sm-max}) {
+    padding: 15px 0;
+  }
+
+  @media only screen and (max-width: #{$screen-sm-max}) {
+    padding: 9px 0;
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .logo {
       outline: transparent;
+      display: flex;
+      align-items: center;
+
+      &__img {
+        fill: $white;
+        width: 55px;
+        height: 60px;
+      }
+
+      &__text {
+        fill: $white;
+        width: 129px;
+        height: 48px;
+        margin-left: 14px;
+
+        @media only screen and (max-width: #{$screen-lg-max}) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -86,8 +149,12 @@
     font-size: 16px;
   }
 
+  &__select-item {
+    position: relative;
+  }
+
   &__select-item:hover &__sub-select {
-    display: block;
+    transform: rotateY(0deg);
   }
 
   &__select-link {
@@ -115,16 +182,40 @@
       content: url("../images/icons/arrow-down.svg");
       position: absolute;
       right: 19px;
+      transition: transform 0.5s;
+
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        display: none;
+      }
+    }
+
+    span {
+      @media only screen and (max-width: #{$screen-lg-max}) {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      padding: 15px 20px 15px 50px;
+    }
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      padding: 15px 15px 15px 50px;
+    }
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      padding: 15px 15px 15px 55px;
     }
   }
 
   &__sub-select {
-    display: none;
+    transform: rotateY(90deg);
     position: absolute;
     z-index: 1;
     background-color: $white;
     border-radius: 0px 0px 6px 6px;
-    bottom: 50px;
+    top: 33px;
+    transition: all 0.5s;
   }
 
   &__sub-select-item {
@@ -141,6 +232,11 @@
       color: $green-900;
       border-color: $green-900;
     }
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      padding: 15px 15px 24px;
+      font-size: 12px;
+    }
   }
 
   &__search {
@@ -153,6 +249,22 @@
       position: absolute;
       left: 10px;
       top: 15px;
+    }
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      max-width: 375px;
+    }
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      max-width: 325px;
+    }
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      max-width: 250px;
+    }
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      display: none;
     }
   }
 
@@ -187,25 +299,56 @@
     &:focus {
       box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.5);
     }
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      max-width: 100px;
+    }
+
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      max-width: 75px;
+    }
+  }
+
+  &__nav {
+    display: flex;
   }
 
   &__nav-link {
     outline: transparent;
     position: relative;
-    &:not(:last-child) {
-      margin-right: 31px;
-    }
     svg {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       fill: $white;
+      padding: 10px;
+      border-radius: 3px;
+      background-color: transparent;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &--search {
+      display: none;
+      @media only screen and (max-width: #{$screen-sm-max}) {
+        display: block;
+      }
+    }
+
+    &--user,
+    &--heart {
+      @media only screen and (max-width: #{$screen-md-max}) {
+        display: none;
+      }
     }
   }
 
   &__num {
     position: absolute;
-    left: -7px;
-    bottom: 24px;
+    left: 0px;
+    bottom: 30px;
     color: $red-900;
     padding: 2px 4px;
     border-radius: 28px;

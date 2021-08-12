@@ -1,33 +1,69 @@
 .top-goods {
   padding: 72px 0;
 
-		&__title {
-      text-align: center;
-      margin-bottom: 30px;
-		}
+  @media only screen and (max-width: #{$screen-sm-max}) {
+    padding: 48px 0;
+  }
 
-		&__content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-right: -30px;
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -30px;
+
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      margin-right: 0;
+    }
+  }
+
+  &__item {
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    border-radius: 6px;
+    width: calc(100% / 4 - 30px);
+    margin-right: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: border-color 0.4s;
+    &:hover {
+      border-color: $green-900;
     }
 
-		&__item {
-      border: 1px solid rgba(17, 17, 17, 0.2);
-      border-radius: 6px;
-      width: calc(100% / 4 - 30px);
-      margin-right: 30px;
-      margin-bottom: 30px;
-      position: relative;
-      transition: border-color 0.4s;
-      &:hover {
-        border-color: $green-900;
-      }
-		}
+    @media only screen and (max-width: #{$screen-xl-max}) {
+      width: calc(100% / 3 - 25px);
+      margin-right: 25px;
+      margin-bottom: 25px;
+    }
 
-		&__button {
-      margin-top: 60px;
-      text-align: center;
-		}
+    @media only screen and (max-width: #{$screen-lg-max}) {
+      width: calc(100% / 2 - 20px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: #{$screen-md-max}) {
+      width: calc(100% / 2 - 10px);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      width: calc(100% / 2 - 5px);
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__button {
+    margin-top: 60px;
+    text-align: center;
+
+    @media only screen and (max-width: #{$screen-sm-max}) {
+      margin-top: 24px;
+    }
+  }
 }
